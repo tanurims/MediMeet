@@ -18,20 +18,20 @@ const Navbar = () => {
       <img className="-w-176 h-15 cursor-pointer" src={assets.logo1} alt="logo"  />
       <ul className="hidden md:flex item-start gap-5 font-medium">
         <NavLink to='/'>
-            <li className="py-1 text-fprimary">HOME</li>
+            <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">HOME</li>
             <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden"/>
 
         </NavLink>
         <NavLink to='/doctors'>
-            <li className="py-1 text-fprimary">ALL DOCTORS</li>
+            <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">ALL DOCTORS</li>
             <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden"/>
         </NavLink>
         <NavLink to='/about'>
-            <li className="py-1 text-fprimary">ABOUT</li>
+            <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">ABOUT</li>
             <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden"/>
         </NavLink>
         <NavLink to='/contact'>
-            <li className="py-1 text-fprimary">CONTACT US</li>
+            <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">CONTACT US</li>
             <hr className="border-none outline-none h-0.5 bg-primary w-3/5 m-auto hidden"/>
         </NavLink>
       </ul>
@@ -39,7 +39,7 @@ const Navbar = () => {
         { token  
         ?<div className='flex items-center gap-4 group relative cursor-pointer'>
           <img className="w-8 rounded-full" src={assets.profile_pic} alt="profile pic"/>
-          <img className="w-2.5" src={assets.dropdown_icon} onClick={toggleDropdown}/>
+          <img className="w-2.5 hover:translate-y-1" src={assets.dropdown_icon} onClick={toggleDropdown} />
           <div className={`absolute top-10 right-0 pt-14 text-base font-medium text-gray-600 ${showDropdown ? 'block' : 'hidden'} `}>
             <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
               <p onClick={() => navigate('/my-profile')} className='hover:text-fprimary cursor-pointer'>My Profile</p>
