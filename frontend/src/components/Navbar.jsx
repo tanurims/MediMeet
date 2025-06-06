@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
-      <img className="-w-176 h-15 cursor-pointer" src={assets.logo1} alt="logo"  />
+      <img className="h-15 cursor-pointer" src={assets.logo1} alt="logo"  />
       <ul className="hidden md:flex item-start gap-5 font-medium">
         <NavLink to='/'>
             <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">HOME</li>
