@@ -26,7 +26,7 @@ const Doctors = () => {
 
   return (
     <div>
-      <p className='text-gray-700 text-center font-medium'>Browse through the doctors specialist</p>
+      <p className='text-gray-700 text-center font-medium text-2xl'>Browse through the doctors specialist</p>
       <div className='flex flex-col sm:flex-row items-startgap-5 mt-5'>
         <div className='flex flex-col gap-4 text-sm text-gray-600 pr-10'>
           <p onClick={()=> speciality === 'General physician'? navigate('/doctors') : navigate('/doctors/General physician')} className={`w-[94vw] sm:w-auto pl-3 py-1.5 pr-16 border border-gray-400 rounded transition-all cursor-pointer ${speciality === "General physician" ? "bg-indigo-100 text-black":""} hover:translate-y-[-5px] transition-all duration-300`}>General physician</p>
@@ -47,7 +47,7 @@ const Doctors = () => {
             }`}>
           {
             filterDoc.map((item,index)=>(
-                <div onClick={()=>navigate(`/appointment/${item._id}`)} key={index} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'>
+                <div onClick={()=>navigate(`/appointments/${item._id}`)} key={index} className='border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-500'>
                     <img className='bg-blue-100' src={item.image} alt="" />
                     <div className='p-4'>
                         <div className='flex items-center gap-2 text-sm text-center text-green-600'>
