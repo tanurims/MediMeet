@@ -21,6 +21,8 @@ const Banner = () => {
             <img className='w-full h-full object-cover object-center absolute bottom-0 max-w-md' src={assets.bannergif}/>
 
         </div>
+
+        
       
     </div>
   )

@@ -9,13 +9,21 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [token,setToken] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+  const handleMouseEnter = () => {
+    setShowDropdown(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowDropdown(false);
   };
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
-      <img className="h-15 cursor-pointer" src={assets.logo1} alt="logo"  />
+      <img onClick={() => navigate('/')} className="h-15 cursor-pointer" src={assets.logo1} alt="logo"  />
       <ul className="hidden md:flex item-start gap-5 font-medium">
         <NavLink to='/'>
             <li className="py-1 text-fprimary transition-all duration-500 ease-in-out hover:scale-105">HOME</li>
@@ -37,10 +45,18 @@ const Navbar = () => {
       </ul>
       <div className='flex-items-center gap-4'>
         { token  
-        ?<div className='flex items-center gap-4 group relative cursor-pointer'>
-          <img className="w-8 rounded-full" src={assets.profile_pic} alt="profile pic"/>
-          <img className="w-2.5 hover:translate-y-1" src={assets.dropdown_icon} onClick={toggleDropdown} />
-          <div className={`absolute top-10 right-0 pt-14 text-base font-medium text-gray-600 ${showDropdown ? 'block' : 'hidden'} `}>
+        ? <div 
+            className='flex items-center gap-4 relative cursor-pointer'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img className="w-8 rounded-full" src={assets.profile_pic} alt="profile pic"/>
+            <img 
+              className="w-2.5 transition-transform duration-200 hover:translate-y-1" 
+              src={assets.dropdown_icon} 
+              onClick={toggleDropdown} 
+            />
+            <div className={`absolute top-full right-0 mt-2 text-base font-medium text-gray-600 z-50 transition-all duration-200 ${showDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
             <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
               <p onClick={() => navigate('/my-profile')} className='hover:text-fprimary cursor-pointer'>My Profile</p>
               <p onClick={() => navigate('/my-appointments')} className='hover:text-fprimary cursor-pointer'>My Appointments</p>
