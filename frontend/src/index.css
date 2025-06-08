@@ -12,6 +12,12 @@
   --color-fprimary: #040c6c;
   --color-primary: #5F6FFF;
 
+ 
+  --color-foreground: #3d4950;
+  --color-muted: #f2f6f9;
+  --color-muted-foreground: #717d91; 
+  --color-stat: #1b47d4;    
+
   --grid-template-columns-auto: repeat(auto-fit, minmax(200px, 1fr));
 }
 
@@ -22,3 +28,5 @@
 ::-webkit-scrollbar {
   @apply hidden;
 }
+
+
