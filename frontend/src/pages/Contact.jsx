@@ -123,7 +123,7 @@ const Contact = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
 
                   
-                  <form className="space-y-6" onSubmit={handleSubmit}>
+                  <form className="space-y-6" >
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
@@ -212,14 +212,14 @@ const Contact = () => {
 
       <section className="py-20 px-4 bg-stat text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
+          <h2 className="text-4xl font-bold mb-6">Careers at MediMeet</h2>
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Don't wait to take control of your health. Browse our network of qualified healthcare 
-            professionals and book your appointment today.
+            Passionate about healthcare? We’d love to work with you. Explore career opportunities and become part of the MediMeet family.
+
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={()=>{navigate('/doctors'); scrollTo(0,0)}} size="lg" className="text-lg text-white px-8 py-3 font-semibold border-2 border-white rounded-xl hover:bg-white hover:text-stat transition-colors duration-300">
-              Find a Doctor
+              Explore Jobs
             </button>
             
           </div>
