@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { AppContext } from '../context/AppContext';
 import { Label } from '@mui/icons-material';
@@ -20,6 +20,41 @@ const Contact = () => {
     Clock
   };
 
+  const [formData, setFormData] = useState({
+    name:'',
+    email:'',
+    phone: '',
+    subject: '',
+    message: ''
+  })
+
+  const[isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
+    setIsSubmitting(true);
+    setResponseMessage('');
+
+    try{
+      await new Promise((res) => setTimeout(res, 1500));
+      setResponseMessage('✅ Message sent successfully!');
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+    });
+
+
+    }catch(err){
+      setResponseMessage("❌ Something went wrong.");
+    }finally{
+      setIsSubmitting(false);
+    }
+  }
   
 
   return (
@@ -88,13 +123,15 @@ const Contact = () => {
                   <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
 
                   
-                  <form className="space-y-6">
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name <span className="text-red-500">*</span></label>
                         <input 
                         type="text"
                         id="name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name:e.target.value})}
                         placeholder='Your full name'
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
@@ -105,7 +142,9 @@ const Contact = () => {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address <span className="text-red-500">*</span></label>
                         <input
                         id="email"
+                        value={formData.email}
                         type="email"
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder='your.email@example.com'
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
                         required/>
@@ -118,7 +157,9 @@ const Contact = () => {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
                         <input 
                         id="phone"
+                        value={formData.phone}
                         type="tel"
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder='012-3456789'
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"/>
                       </div>
@@ -126,6 +167,8 @@ const Contact = () => {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Subject <span className="text-red-500">*</span></label>
                         <input 
                         id='subject'
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                         placeholder='What is this about?'
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500"
                         required/>
@@ -137,6 +180,8 @@ const Contact = () => {
                         <textarea
                           id="message"
                           name="message"
+                          value={formData.message}
+                          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           placeholder="Tell us how we can help you..."
                           rows={5}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 bg-white text-gray-900 placeholder-gray-500 resize-vertical"
@@ -144,11 +189,15 @@ const Contact = () => {
                         />
                       </div>
 
-                      <button className="w-full bg-blue-600 hover:bg-blue-700 hover:translate-y-[-10px]  text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
+                      <button type='submit' className="w-full bg-blue-600 hover:bg-blue-700 hover:translate-y-[-10px]  text-white font-semibold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
                         >
                         <Send className="h-5 w-5 mr-2" />
-                        Send Message
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                       </button>
+
+                      {responseMessage && (
+                      <p className="text-center mt-4 text-lg text-green-600">{responseMessage}</p>
+                    )}
                   </form>
                 </div>
               </div>
