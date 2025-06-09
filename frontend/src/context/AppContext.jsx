@@ -46,10 +46,37 @@ const AppContextProvider = (props) => {
 
     }
 
+    const contactUsData = {
+      contactInfo :[
+      {
+        icon: "MapPin",
+        title: "Our Address",
+        content: "123 Healthcare Street, Medical District, New York, NY 10001"
+      },
+      {
+        icon: "Phone",
+        title: "Phone Number",
+        content: "+1 (555) 123-4567"
+      },
+      {
+        icon: "Mail",
+        title: "Email Address",
+        content: "contact@medimeet.com"
+      },
+      {
+        icon: "Clock",
+        title: "Office Hours",
+        content: "Every weekdays and Weekends\n: 10:00 AM - 9:00 PM"
+      },
+    ],
+    }
+
     const value={
         doctors, 
         currencySymbol,
-        aboutUsData
+        aboutUsData,
+        contactUsData
+        
     }
 
     return(
