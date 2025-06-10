@@ -4,7 +4,7 @@ import { User, Edit, Save, X, Camera, Phone, Mail, MapPin, Calendar, Upload, Eye
 
 const MyProfile = () => {
 
-  const [isEditing, setIsEditing] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
   
   
 
@@ -229,6 +229,7 @@ const MyProfile = () => {
                           onChange={(e) => setEditData({ ...editData, email: e.target.value })}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200"
                           required
+                          readOnly
                         />
                       </div>
                       <div>
