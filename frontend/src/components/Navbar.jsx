@@ -59,7 +59,7 @@ const Navbar = () => {
             <div className={`absolute top-full right-0 mt-2 text-base font-medium text-gray-600 z-50 transition-all duration-200 ${showDropdown ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
             <div className='min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4'>
               <p onClick={() => navigate('/my-profile')} className='hover:text-fprimary cursor-pointer'>My Profile</p>
-              <p onClick={() => navigate('/my-appointments')} className='hover:text-fprimary cursor-pointer'>My Appointments</p>
+              <p onClick={() => navigate('/my-appoinments')} className='hover:text-fprimary cursor-pointer'>My Appointments</p>
               <p onClick={() => setToken(false)} className='hover:text-fprimary cursor-pointer'>Logout</p>
             </div>
           </div>

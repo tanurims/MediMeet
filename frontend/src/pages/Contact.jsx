@@ -70,7 +70,7 @@ const Contact = () => {
               Reach out to us and we'll get back to you as soon as possible.
             </p>
           </div>
-          <div className="mt-12 animate-fade-in-up animate-delay-200">
+          <div className="mt-12 ">
             <Mail className="h-16 w-16 text-primary mx-auto opacity-80" />
 
           </div>
