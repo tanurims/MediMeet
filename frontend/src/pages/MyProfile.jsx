@@ -105,16 +105,14 @@ const MyProfile = () => {
                 <div className="flex space-x-3">
                   {!isEditing && (
                     <button
-                    className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-                    onClick={() => setIsEditing(true)}>
+                    className="flex items-center space-x-1 sm:space-x-2 bg-white/20 hover:bg-white/30 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg transition-colors duration-200 text-xs sm:text-sm"                    onClick={() => setIsEditing(true)}>
                     <Edit className="h-4 w-4" />
                     <span>Edit Profile</span>
                   </button>
                   )}
                   {isEditing && (
                     <button
-                    className="flex items-center space-x-2 bg-red-500/80 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-                    onClick={handleCancel}>
+                    className="flex items-center space-x-1 sm:space-x-2 bg-red-500/80 hover:bg-red-600 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg transition-colors duration-200 text-xs sm:text-sm"                    onClick={handleCancel}>
                      <X className="h-4 w-4" />
                     <span>Cancel</span>
                   </button>
