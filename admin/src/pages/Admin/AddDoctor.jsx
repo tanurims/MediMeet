@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import assets from "../../assets/assets";
 
 const AddDoctor = () => {
+
+    const [docImg,setDocImg] = useState(false)
+    const [name,setName] = useState('')
+    const [email,setEmail] = useState('')
+    const [password,setPassword] = useState('')
+    const [experience,setExperience] = useState('1 Year')
+    const [fees,setFees] = useState('')
+    const [speciality,setSpeciality] = useState('General physician')
+    const [about,setAbout] = useState('')
+    const [degree,setDegree] = useState('')
+    const [address1,setAddress1] = useState('')
+    const [address2,setAddress2] = useState('')
+
   return (
     <form className="m-5 w-full">
       <p className="mb-3 text-lg font-medium">Add Doctor</p>
@@ -9,9 +22,9 @@ const AddDoctor = () => {
       <div className="bg-white px-8 py-8 border rounded w-full max-w-4xl max-h-[80vh] overflow-y-scroll">
         <div className="flex items-center gap-4 mb-8 text-gray-500">
           <label htmlFor="doc-img">
-            <img className="w-16 bg-gray-100 rounded-full cursor-pointer" src={assets.upload_area} alt="" />
+            <img className="w-16 bg-gray-100 rounded-full cursor-pointer" src={docImg ? URL.createObjectURL(docImg) : assets.upload_area} alt="" />
           </label>
-          <input type="file" id="doc-img" hidden />
+          <input onChange={(e)=>setDocImg(e.target.files[0])} type="file" id="doc-img" hidden />
           <p>
             Upload doctor <br />
             picture
